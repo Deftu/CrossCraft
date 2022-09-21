@@ -1,0 +1,26 @@
+{
+    "schemaVersion": 1,
+    "id": "${mod_id}",
+    "version": "${mod_version}",
+    "name": "${mod_name}",
+    "description": "Minecraft library for helping in writing cross-version compatible code.",
+    "authors": [
+        "UnifyCraft"
+    ],
+    "contributors": [
+        "Deftu"
+    ],
+    "contact": {
+        "homepage": "https://unifycraft.xyz/",
+        "sources": "https://github.com/UnifyCraft/${mod_name}",
+        "issues": "https://github.com/UnifyCraft/${mod_name}/issues"
+    },
+    "license": "LGPL 3.0",
+    "environment": "client",
+    "mixins": [
+        "crosscraft.mixins.json"
+    ],
+    "depends": {
+        "minecraft": "~${mc_version}"
+    }
+}

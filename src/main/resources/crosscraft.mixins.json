@@ -1,0 +1,8 @@
+{
+    "required": true,
+    "package": "xyz.unifycraft.crossversion.mixins",
+    "compatibilityLevel": "JAVA_16",
+    "client": [
+        "MainMixin"
+    ]
+}
