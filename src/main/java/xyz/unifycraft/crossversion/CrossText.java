@@ -10,7 +10,7 @@ import net.minecraft.text.Text;
 public class CrossText {
     public static Text literal(String input) {
         //#if MC<11900
-        //$$ return LiteralText(input);
+        //$$ return new LiteralText(input);
         //#else
         return Text.literal(input);
         //#endif
@@ -18,7 +18,7 @@ public class CrossText {
 
     public static Text translatable(String input, Object... args) {
         //#if MC<11900
-        //$$ return TranslatableText(input, args);
+        //$$ return new TranslatableText(input, args);
         //#else
         return Text.translatable(input, args);
         //#endif
@@ -26,7 +26,7 @@ public class CrossText {
 
     public static Text translatable(String input) {
         //#if MC<11900
-        //$$ return TranslatableText(input);
+        //$$ return new TranslatableText(input);
         //#else
         return Text.translatable(input);
         //#endif

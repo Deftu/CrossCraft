@@ -4,8 +4,6 @@ import ca.weblite.objc.Client;
 import ca.weblite.objc.Proxy;
 import net.minecraft.client.texture.NativeImage;
 import org.jetbrains.annotations.NotNull;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -21,8 +19,6 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class CrossImage {
-    private static final Logger LOGGER = LoggerFactory.getLogger("CrossImage");
-
     /**
      * Copies the provided image to the system clipboard.
      *
@@ -44,9 +40,7 @@ public class CrossImage {
             Proxy pasteboardProxy = client.sendProxy("NSPasteboard", "generalPasteboard");
             pasteboardProxy.send("clearContents");
             boolean successful = pasteboardProxy.sendBoolean("writeObjects:", arrayProxy);
-
-            if (!tempFile.delete())
-                LOGGER.warn("Could not delete temporary file {}!", tempFile.getAbsolutePath());
+            tempFile.delete();
             if (!successful)
                 throw new IllegalStateException("Failed to copy image to clipboard!");
 

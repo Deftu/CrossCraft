@@ -24,8 +24,11 @@ public class CrossChat {
         } else text = CrossText.literal(msg);
 
         switch (type) {
-            case CHAT -> chat(text);
-            case ACTION_BAR -> action(text);
+            case CHAT:
+                chat(text);
+                break;
+            case ACTION_BAR:
+                action(text);
         }
     }
 
@@ -45,7 +48,7 @@ public class CrossChat {
 
     private static void chat(Text message) {
         //#if MC<11900
-        //$$ CrossPlayer.getInstance().sendMessage(message, null);
+        //$$ CrossPlayer.getInstance().sendMessage(message, false);
         //#else
         CrossPlayer.getInstance().sendMessage(message);
         //#endif
@@ -60,7 +63,7 @@ public class CrossChat {
             //$$ MessageType.GAME_INFO
             //#endif
             //#if MC>=11600 && MC<11900
-            // , CrossPlayer.getUuid()
+            //$$ , CrossPlayer.getUuid()
             //#endif
         ));
     }

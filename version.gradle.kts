@@ -27,3 +27,11 @@ tasks {
         archiveBaseName.set("${modData.name}-${mcData.versionStr}")
     }
 }
+
+afterEvaluate {
+    publishing.publications.getByName<MavenPublication>("mavenJava") {
+        group = modData.group
+        artifactId = "${modData.name}-${mcData.versionStr}-${mcData.loader.name}".toLowerCase()
+        version = modData.version
+    }
+}
