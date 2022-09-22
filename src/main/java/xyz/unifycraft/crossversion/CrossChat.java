@@ -1,8 +1,14 @@
 package xyz.unifycraft.crossversion;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.Objects;
+
 public class CrossChat {
-    public static boolean send(ChatType type, Object message) {
-        if (!CrossPlayer.isPresent())
+    public static boolean send(@NotNull ChatType type, @Nullable Object message) {
+        Objects.requireNonNull(type);
+        if (message == null || !CrossPlayer.isPresent())
             return false;
 
         // TODO: 9/21/2022

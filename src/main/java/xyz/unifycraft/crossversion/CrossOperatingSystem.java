@@ -1,5 +1,7 @@
 package xyz.unifycraft.crossversion;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.concurrent.TimeUnit;
 
 public class CrossOperatingSystem {
@@ -11,7 +13,7 @@ public class CrossOperatingSystem {
     private static boolean gnome = false;
     private static boolean xdg = false;
 
-    public static boolean run(boolean checkExitCode, String... command) {
+    public static boolean run(boolean checkExitCode, @NotNull String... command) {
         try {
             Process process = Runtime.getRuntime().exec(command);
             if (process == null)

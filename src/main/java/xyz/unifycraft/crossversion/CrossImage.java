@@ -17,6 +17,7 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.Objects;
 import java.util.UUID;
 
 public class CrossImage {
@@ -27,7 +28,8 @@ public class CrossImage {
      *
      * @param image The image to copy to the clipboard.
      */
-    public static void copy(NativeImage image) throws IOException {
+    public static void copy(@NotNull NativeImage image) throws IOException {
+        Objects.requireNonNull(image);
         if (CrossClient.isOnMac()) {
             File tempFile = new File(UUID.randomUUID() + ".temp");
             if (!tempFile.createNewFile() || !tempFile.canWrite())
